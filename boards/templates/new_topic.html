@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}{{board.name}} - {{block.super}}{% endblock title %}
+
+
+{% block breadcrumb %}
+
+<li class="breadcrumb-item active">
+    <a href="{% url 'index' %}">Boards</a>
+</li>
+<li class="breadcrumb-item">
+    <a href="{% url 'boards_topic' board.pk %}"> {{board.name}}></a>
+</li>
+
+<li class="breadcrumb-item">new topic</li>
+
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+
+
+<form method="POST" novalidate>
+    {% csrf_token %}
+    <!-- 1 <div class="form-group">
+        <label for="subject">subject</label>
+        <input type="text" name="subject" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="message">message</label>
+        <textarea name="message" class="form-control"></textarea>
+    </div> -->
+
+    <!--  2 {{form.as_p}} -->
+
+
+    {% include 'includes/form.html' %}
+    <button class=" btn btn-success">Submit</button>
+</form>
+
+
+
+
+
+
+{% endblock content %}

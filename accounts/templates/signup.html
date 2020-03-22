@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+signup
+
+{% endblock title %}
+
+
+{% block content %}
+
+<form method='POST' novalidate>
+    {% csrf_token %}
+    {% include 'includes/form.html' %}
+    <button class="btn btn-secondary">Submit</button>
+</form>
+
+
+<div class="card-footer text-muted text-center">
+    Already have an account <a href="#">Login</a>
+</div>
+
+{% endblock content %}

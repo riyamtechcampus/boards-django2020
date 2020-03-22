@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+
+login
+{% endblock title %}
+
+
+{% block content %}
+<h4>Login </h4>
+<form method='POST'>
+    {% csrf_token %}
+
+    <input type="hidden" name="next" value="{{next}}">
+
+    {% include 'includes/form.html' %}
+
+    <button class="btn btn-secondary">Login</button>
+
+</form>
+
+<div class="card-footer text-muted text-center">
+    Create new account <a href="{% url 'signup' %}">Signup</a>
+</div>
+
+{% endblock content %}
